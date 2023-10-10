@@ -17,7 +17,9 @@ public class Cuenta {
 	}
 
 	public void retirar(double i) {
-		this.setSaldo(this.getSaldo()-i);
+		if((this.getSaldo()-i)>-500)
+			this.setSaldo(this.getSaldo()-i);
+
 	}
 
 	public Cuenta(double saldo) {
