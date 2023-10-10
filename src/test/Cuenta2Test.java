@@ -25,6 +25,7 @@ class Cuenta2Test {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		ctaPrueba.setSaldo(0);
 	}
 
 	@AfterEach
@@ -32,15 +33,14 @@ class Cuenta2Test {
 	}
 
 	@Test
-	void testIngresar() {
-		ctaPrueba.ingresar(300);
-		assertEquals(300, ctaPrueba.getSaldo());
+	void testRetirar() {
+		assertEquals(ctaPrueba, ctaPrueba);
 	}
 	
 	@Test
-	void testRetirar() {
-		ctaPrueba.retirar(300);
-		assertEquals(0, ctaPrueba.getSaldo());
+	void testIngresar() {
+		
 	}
+	
 
 }

@@ -2,6 +2,8 @@ package pkg;
 
 import java.util.List;
 
+import pkg.Movimiento.Movimientos;
+
 public class Cuenta2 {
 	
 	private String numero;
@@ -60,12 +62,16 @@ public class Cuenta2 {
 
 
 	public void ingresar(double i) {
-		this.saldo=300;		
+		this.setSaldo(this.getSaldo()+i);
+		mMovimientos.add(new Movimiento(i, Movimientos.H));
 	}
 
 
 	public void retirar(double i) {
-		this.saldo=0;
+		if(this.getSaldo()-i>-500) {
+			this.setSaldo(this.getSaldo()-i);
+			mMovimientos.add(new Movimiento(i, Movimientos.D));
+		}
 	}
 
 
