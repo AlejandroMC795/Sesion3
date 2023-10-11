@@ -11,12 +11,12 @@ import org.junit.jupiter.api.Test;
 import pkg.Cuenta;
 
 class CuentaTest {
-
-	static Cuenta ctaPruebas;	
+	
+	Cuenta ctaPruebas;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		ctaPruebas = new Cuenta(0);
+		ctaPruebas=new Cuenta(12345, "Pepe", 0);
 	}
 
 	@AfterAll
@@ -34,14 +34,14 @@ class CuentaTest {
 
 	@Test
 	void testIngresar() {
-		ctaPruebas.ingresar(3000);
-		assertEquals(3000, ctaPruebas.getSaldo());
+		ctaPruebas.ingresar(100);
+		assertEquals(new Cuenta(12345, "Pepe", 100, new Movimiento(100, TipoMov.H, " ")), ctaPruebas);
 	}
 
 	@Test
 	void testRetirar() {
-		ctaPruebas.retirar(3000);
-		assertEquals(-3000, ctaPruebas.getSaldo());
+		ctaPruebas.retirar(100);
+		assertEquals(new Cuenta(12345, "Pepe", -100, new Movimiento(100, TipoMov.D, " ")), ctaPruebas);
+
 	}
-	
 }
