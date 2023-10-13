@@ -1,5 +1,7 @@
 package pkg;
 
+import static org.junit.Assume.assumeNoException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,19 +63,24 @@ public class Cuenta {
 	}
 
 	public void ingresar(double i) {
-		this.setSaldo(100);
+		/*this.setSaldo(100);
 		this.setNumCuenta(12345);
 		this.setTitular("Pepe");
 		this.movimientos.clear();
-		this.movimientos.add(new Movimiento(100, TipoMov.H, " "));
+		this.movimientos.add(new Movimiento(100, TipoMov.H, " "));*/
+		
+		this.setSaldo(this.getSaldo()+i);
 	}
 
 	public void retirar(int i) {
-		this.setSaldo(-100);
+		/*this.setSaldo(-100);
 		this.setNumCuenta(12345);
 		this.setTitular("Pepe");
 		this.movimientos.clear();
-		this.movimientos.add(new Movimiento(100, TipoMov.D, " "));		
+		this.movimientos.add(new Movimiento(100, TipoMov.D, " "));	*/	
+		
+		if(this.getSaldo()-i>=500)
+			this.setSaldo(this.getSaldo()-i);
 	}
 	
 

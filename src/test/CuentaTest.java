@@ -23,7 +23,7 @@ class CuentaTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		ctaPruebas=new Cuenta(12345, "Pepe", 0);
-		ctaPrueba1=new Cuenta(12345, "Pepe", -100, new Movimiento(100, TipoMov.D, " "));
+		ctaPrueba1=new Cuenta(12345, "Pepe", 0, new Movimiento(100, TipoMov.D, " "));
 		ctaPrueba2=new Cuenta(12345, "Pepe", 100, new Movimiento(100, TipoMov.H, " "));
 	}
 
