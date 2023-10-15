@@ -19,12 +19,16 @@ class CuentaTest {
 	static Cuenta ctaPruebas;
 	static Cuenta ctaPrueba1;
 	static Cuenta ctaPrueba2;
+	static Cuenta ctaTest1;
+	static Cuenta ctaTest2;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		ctaPruebas=new Cuenta(12345, "Pepe", 0);
-		ctaPrueba1=new Cuenta(12345, "Pepe", 0, new Movimiento(100, TipoMov.D, " "));
-		ctaPrueba2=new Cuenta(12345, "Pepe", 100, new Movimiento(100, TipoMov.H, " "));
+		ctaTest1=new Cuenta(12345, "Ale", 50);
+		ctaTest2=new Cuenta(67890, "Jose", 0);
+		ctaPruebas=new Cuenta(1234, "Pepe", 0);
+		ctaPrueba1=new Cuenta(1234, "Pepe", -100, new Movimiento(100, TipoMov.D, " "));
+		ctaPrueba2=new Cuenta(1234, "Pepe", 100, new Movimiento(100, TipoMov.H, " "));
 	}
 
 	@AfterAll
@@ -60,7 +64,7 @@ class CuentaTest {
 			}
 		}
 	}
-
+	
 	
 	@Test
 	void testIngresar() {
@@ -81,6 +85,21 @@ class CuentaTest {
 				assertEquals(m1.getTipoMovimiento(), m2.getTipoMovimiento());
 			}
 		}
+	}
+	
+	
+	@Test
+	void test0014() {
+		ctaTest1.retirar(200);
+		ctaTest2.retirar(350);
+		ctaTest1.ingresar(100);
+		//ctaTest2.retirar(200);
+		ctaTest2.retirar(150);
+		ctaTest1.retirar(200);
+		ctaTest2.ingresar(50);
+		//ctaTest2.retirar(100);
+		assertEquals(-250, ctaTest1.getSaldo());
+		assertEquals(-450, ctaTest2.getSaldo());
 	}
 
 }

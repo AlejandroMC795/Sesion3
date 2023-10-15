@@ -1,11 +1,7 @@
 package pkg;
 
-import static org.junit.Assume.assumeNoException;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import pkg.Movimiento.TipoMov;
 
 
 public class Cuenta {
@@ -72,14 +68,14 @@ public class Cuenta {
 		this.setSaldo(this.getSaldo()+i);
 	}
 
-	public void retirar(int i) {
+	public void retirar(double i) {
 		/*this.setSaldo(-100);
 		this.setNumCuenta(12345);
 		this.setTitular("Pepe");
 		this.movimientos.clear();
 		this.movimientos.add(new Movimiento(100, TipoMov.D, " "));	*/	
 		
-		if(this.getSaldo()-i>=500)
+		if(this.getSaldo()-i>=-500)
 			this.setSaldo(this.getSaldo()-i);
 	}
 	
