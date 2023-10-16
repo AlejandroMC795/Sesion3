@@ -3,6 +3,8 @@ package pkg;
 import java.util.ArrayList;
 import java.util.List;
 
+import pkg.Movimiento.TipoMov;
+
 
 public class Cuenta {
 	
@@ -58,25 +60,16 @@ public class Cuenta {
 		this.movimientos = movimientos;
 	}
 
-	public void ingresar(double i) {
-		/*this.setSaldo(100);
-		this.setNumCuenta(12345);
-		this.setTitular("Pepe");
-		this.movimientos.clear();
-		this.movimientos.add(new Movimiento(100, TipoMov.H, " "));*/
-		
+	public void ingresar(double i) {		
 		this.setSaldo(this.getSaldo()+i);
+		this.movimientos.add(new Movimiento(i, TipoMov.D, " "));
 	}
 
-	public void retirar(double i) {
-		/*this.setSaldo(-100);
-		this.setNumCuenta(12345);
-		this.setTitular("Pepe");
-		this.movimientos.clear();
-		this.movimientos.add(new Movimiento(100, TipoMov.D, " "));	*/	
-		
-		if(this.getSaldo()-i>=-500)
+	public void retirar(double i) {		
+		if(this.getSaldo()-i>=-500) {
 			this.setSaldo(this.getSaldo()-i);
+			this.movimientos.add(new Movimiento(i, TipoMov.H, " "));
+		}
 	}
 	
 
